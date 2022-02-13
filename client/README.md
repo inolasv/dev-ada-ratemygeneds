@@ -1,3 +1,18 @@
+possibly not needed anymore
+
+# dev-ada-ratemygeneds
+
+### commands to run locally
+
+run client:
+cd client
+npm install
+npm start
+
+run server???
+
+src/server/config.env file with:
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
