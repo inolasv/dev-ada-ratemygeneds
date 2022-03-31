@@ -57,6 +57,7 @@ export default function Search() {
       {courses.map((course, index) => (
         <div key={index}>
           <div>
+            <a href='#'>Hello</a>
             <p>{course.Course}</p>
             <p>{course['Course Title']}</p>
           </div>
