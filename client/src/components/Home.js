@@ -42,23 +42,23 @@ export default function Search() {
   };
 
   return (
-    <div>
-      <h1>Rate My Gen-Eds @ UIUC</h1>
-      <p>This is what you typed: {searchValue}</p>
+    <div className="search-wrapper">
+      <h1 className="title">Rate My Gen-Eds @ UIUC</h1>
+      {/* <p>This is what you typed: {searchValue}</p> */}
       <input
         name='text'
         type='text'
-        placeholder='Search'
+        placeholder='search for a course or requirement'
         onChange={(event) => handleOnChange(event)}
         value={searchValue}
       />
-
+      <div>
       <button onClick={handleSearch}>Search</button>
+      </div>
       {courses.map((course, index) => (
         <div key={index}>
-          <div>
-            <p>{course.Course}</p>
-            <p>{course['Course Title']}</p>
+          <div className="search-result-wrapper">
+            {course.Course} : {course['Course Title']} <p>{ course['ACP'] }</p> <p>{ course['CS'] }</p> <p>{ course['HUM'] }</p> <p>{ course['NAT'] }</p> <p>{ course['QR'] }</p> <p>{ course['SBS'] }</p>
           </div>
         </div>
       ))}

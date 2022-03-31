@@ -3,15 +3,16 @@
   padding: 0;
 }
 
-h1 {
-  color: #4286f4;
-  margin-top: 30px;
-  margin-bottom: 60px;
+.title {
+  color: black;
+  font-family: Geneva, Tahoma, sans-serif;
+  font-size: 50px;
+  margin-top: 10%;
+  margin-bottom: 20px;
 }
 
 div {
   text-align: center;
-  width: 80%;
   margin: 0 auto;
 }
 
@@ -22,15 +23,34 @@ input {
   border-radius: 4px;
   border: 1px solid #4e5766;
   box-shadow: 1px 0.5px #888888;
-  font-size: 18px;
+  font-size: 76%;  
+  font-family: Geneva, Tahoma, sans-serif;
+  width: 60%;
+
 }
 
 button {
   padding: 12px 10px;
+  margin: 20px;
   width: 30%;
+  border-color: #e6e6e6;
   border-radius: 4px;
-  background-color: #4286f4;
-  color: #ffffff;
+  background-color: #e6e6e6;
+  color: black;
   cursor: pointer;
   font-size: 18px;
 }
+
+.search-result-wrapper {
+  color: black;
+  font-size: 20px;
+  font-family: Geneva, Tahoma, sans-serif;
+  justify-content: left;
+  display: flex;
+}
+
+/* p {
+  background-color: #c1c1c1;
+  color: black;
+  font-family: Geneva, Tahoma, sans-serif;
+} */
