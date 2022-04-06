@@ -5,6 +5,7 @@ export default function Search() {
   const [courses, setCourses] = useState([]);
   const [searchValue, setSearchValue] = useState([]);
 
+
   const handleOnChange = (event) => {
     setSearchValue(event.target.value);
   };
@@ -37,9 +38,15 @@ export default function Search() {
       console.log(courses);
       setCourses(courses);
     }
-
     getCourses();
   };
+  
+  const determineClass = (type) => {
+    if (type === "") {
+      return "none"
+    }
+    return "box"
+  }
 
   return (
     <div className="search-wrapper">
@@ -58,7 +65,13 @@ export default function Search() {
       {courses.map((course, index) => (
         <div key={index}>
           <div className="search-result-wrapper">
-            {course.Course} : {course['Course Title']} <p>{ course['ACP'] }</p> <p>{ course['CS'] }</p> <p>{ course['HUM'] }</p> <p>{ course['NAT'] }</p> <p>{ course['QR'] }</p> <p>{ course['SBS'] }</p>
+            {course.Course} : {course['Course Title']}
+            <p className={determineClass(course['ACP'])}>{ course['ACP'] }</p> 
+            <p className={determineClass(course['CS'])}>{ course['CS'] }</p> 
+            <p className={determineClass(course['HUM'])}>{ course['HUM'] }</p> 
+            <p className={determineClass(course['NAT'])}>{ course['NAT'] }</p> 
+            <p className={determineClass(course['QR'])}>{course['QR']}</p> 
+            <p className={determineClass(course['SBS'])}>{course['SBS']}</p>
           </div>
         </div>
       ))}
