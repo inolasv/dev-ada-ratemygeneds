@@ -1,6 +1,7 @@
 import '../stylesheets/Search.css';
 import React, { Component, useState } from 'react';
 import Course from './courseList';
+import star from '../star.png'
 export default function Search() {
   const [courses, setCourses] = useState([]);
   const [searchValue, setSearchValue] = useState([]);
@@ -48,8 +49,17 @@ export default function Search() {
     return "box"
   }
 
+  const makeStars = () => {
+    const stars = [];
+    for(var i = 0; i < Math.random() * 5; i++) {
+      stars.push(<img src={star} alt="Star" className="star"/>);
+    }
+    return stars;
+  }
+
   return (
     <div className="search-wrapper">
+      <p className="sign-in">Sign in</p>
       <h1 className="title">Rate My Gen-Eds @ UIUC</h1>
       {/* <p>This is what you typed: {searchValue}</p> */}
       <input
@@ -72,6 +82,7 @@ export default function Search() {
             <p className={determineClass(course['NAT'])}>{ course['NAT'] }</p> 
             <p className={determineClass(course['QR'])}>{course['QR']}</p> 
             <p className={determineClass(course['SBS'])}>{course['SBS']}</p>
+            {makeStars()}
           </div>
         </div>
       ))}
