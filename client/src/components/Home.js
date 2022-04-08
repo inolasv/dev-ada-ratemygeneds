@@ -2,9 +2,17 @@ import '../stylesheets/Search.css';
 import React, { Component, useState } from 'react';
 import Course from './courseList';
 import star from '../star.png'
+
 export default function Search() {
+
   const [courses, setCourses] = useState([]);
   const [searchValue, setSearchValue] = useState([]);
+
+  const quotes = [
+    'This class was super straightforward, I really loved learning about the topic and was able to dive deeper with our group projects. Definitely would suggest taking!',
+    "I hated this class so much. There was so much work every week, and the professor always graded super harshly, and wouldn't give much feedback to students. If you can, I'd suggest taking another gened.",
+    "This class was moderate in workload, but it doesn't have a final exam or midterms, just weekly quizzes that are super easy to do, and discussions are always fun to go to, I'm always wide awake during this class!",
+  ];
 
 
   const handleOnChange = (event) => {
@@ -57,6 +65,7 @@ export default function Search() {
     return stars;
   }
 
+
   return (
     <div className="search-wrapper">
       <p className="sign-in">Sign in</p>
@@ -83,6 +92,10 @@ export default function Search() {
             <p className={determineClass(course['QR'])}>{course['QR']}</p> 
             <p className={determineClass(course['SBS'])}>{course['SBS']}</p>
             {makeStars()}
+
+          </div>
+          <div className="review">
+          {quotes[Math.floor(Math.random() * 3) + 0]}
           </div>
         </div>
       ))}
