@@ -2,6 +2,7 @@ import '../stylesheets/Search.css';
 import React, { Component, useState } from 'react';
 import Course from './courseList';
 import star from '../star.png'
+import { Link } from 'react-router-dom';
 
 export default function Search() {
 
@@ -85,6 +86,7 @@ export default function Search() {
         <div key={index}>
           <div className="search-result-wrapper">
             {course.Course} : {course['Course Title']}
+            <Link to={`/details/${course._id}`} key={course._id}> {course.Course} </Link>
             <p className={determineClass(course['ACP'])}>{ course['ACP'] }</p> 
             <p className={determineClass(course['CS'])}>{ course['CS'] }</p> 
             <p className={determineClass(course['HUM'])}>{ course['HUM'] }</p> 
