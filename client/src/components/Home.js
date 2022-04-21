@@ -14,6 +14,41 @@ export default function Search() {
     "This class was moderate in workload, but it doesn't have a final exam or midterms, just weekly quizzes that are super easy to do, and discussions are always fun to go to, I'm always wide awake during this class!",
   ];
 
+const MongoClient = require("mongodb").MongoClient;
+const assert = require("assert");
+const agg = [
+  {
+    $search: {
+      text: {
+        query: "human",
+        path: "plot",
+      },
+    },
+  },
+  {
+    $limit: 5,
+  },
+  {
+    $project: {
+      _id: 0,
+      'Course Title': 1,
+      'Course': 1,
+      'CS': 1,
+    },
+  },
+];
+MongoClient.connect(
+  "<connection-string>",
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  async function (connectErr, client) {
+    assert.equal(null, connectErr);
+    const coll = client.db("myFirstDatabase").collection("courses");
+    let cursor = await coll.aggregate(agg);
+    await cursor.forEach((doc) => console.log(doc));
+    client.close();
+  }
+);
+
 
   const handleOnChange = (event) => {
     setSearchValue(event.target.value);
