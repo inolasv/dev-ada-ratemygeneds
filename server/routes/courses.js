@@ -27,18 +27,12 @@ const ObjectId = require('mongodb').ObjectId;
 
 
 //Search by name
-courseRoutes.route('/courses/:course').get(function (req, res) {
+courseRoutes.route('/courses/:name').get(function (req, res) {
   let db_connect = dbo.getDb('myFirstDatabase');
   // let val = req.params.name;
   db_connect
     .collection('courses')
-    .find({ 
-      $or: [
-        // {'Course Title': new RegExp(req.query.name, 'i') },
-        {'Course': new RegExp(req.query, 'i')},
-        // {'CS': new RegExp(req.query.name, 'i')},
-        ]
-      })
+    .find({ 'Course Title': new RegExp(req.params.name, 'i') })
     .toArray(function (err, result) {
       if (err) throw err;
       res.json(result);

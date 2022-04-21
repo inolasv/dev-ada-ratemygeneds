@@ -2,6 +2,7 @@ import '../stylesheets/Search.css';
 import React, { Component, useState } from 'react';
 import Course from './courseList';
 import star from '../star.png'
+import { Link } from 'react-router-dom';
 
 export default function Search() {
 
@@ -13,42 +14,6 @@ export default function Search() {
     "I hated this class so much. There was so much work every week, and the professor always graded super harshly, and wouldn't give much feedback to students. If you can, I'd suggest taking another gened.",
     "This class was moderate in workload, but it doesn't have a final exam or midterms, just weekly quizzes that are super easy to do, and discussions are always fun to go to, I'm always wide awake during this class!",
   ];
-
-const MongoClient = require("mongodb").MongoClient;
-const assert = require("assert");
-const agg = [
-  {
-    $search: {
-      text: {
-        query: "human",
-        path: "plot",
-      },
-    },
-  },
-  {
-    $limit: 5,
-  },
-  {
-    $project: {
-      _id: 0,
-      'Course Title': 1,
-      'Course': 1,
-      'CS': 1,
-    },
-  },
-];
-MongoClient.connect(
-  "<connection-string>",
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  async function (connectErr, client) {
-    assert.equal(null, connectErr);
-    const coll = client.db("myFirstDatabase").collection("courses");
-    let cursor = await coll.aggregate(agg);
-    await cursor.forEach((doc) => console.log(doc));
-    client.close();
-  }
-);
-
 
   const handleOnChange = (event) => {
     setSearchValue(event.target.value);
@@ -103,7 +68,6 @@ MongoClient.connect(
 
   return (
     <div className="search-wrapper">
-      <p className="sign-in">Sign in</p>
       <h1 className="title">Rate My Gen-Eds @ UIUC</h1>
       {/* <p>This is what you typed: {searchValue}</p> */}
       <input
@@ -119,7 +83,7 @@ MongoClient.connect(
       {courses.map((course, index) => (
         <div key={index}>
           <div className="search-result-wrapper">
-            {course.Course} : {course['Course Title']}
+          <Link className="link" to={`/details/${course._id}`} key={course._id}> {course.Course}</Link> : {course['Course Title']}
             <p className={determineClass(course['ACP'])}>{ course['ACP'] }</p> 
             <p className={determineClass(course['CS'])}>{ course['CS'] }</p> 
             <p className={determineClass(course['HUM'])}>{ course['HUM'] }</p> 

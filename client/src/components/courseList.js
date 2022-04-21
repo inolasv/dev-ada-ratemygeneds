@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Course = (props) => (
   <tr>
-    <td>{props.course.Course}</td>
+    <td>
+      <h1>Hello</h1>
+    <Link to={`/details/${props.course._id}`} key={props.course._id}> {props.course.Course} </Link></td>
     <td>{props.course['Course Title']}</td>
   </tr>
 );
