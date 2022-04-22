@@ -24,10 +24,11 @@ const ObjectId = require('mongodb').ObjectId;
 //     });
 // });
 
+
+
 //Search by name
 courseRoutes.route('/courses/:name').get(function (req, res) {
   let db_connect = dbo.getDb('myFirstDatabase');
-  // console.
   // let val = req.params.name;
   db_connect
     .collection('courses')

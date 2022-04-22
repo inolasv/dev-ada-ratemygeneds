@@ -3,7 +3,22 @@
   padding: 0;
 }
 
-.sign-in {
+.login-logout {
+  width: 22.6%;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+.link {
+  color: black;
+  background-color:rgb(223, 223, 223);
+  padding: 3px;
+  padding-right: 5px;
+  padding-left: 5px;
+  border-radius: 4px;
+}
+
+/* .sign-in {
   margin-left: 92.5%;
   margin-right: .5em;
   width: 4.5em;
@@ -18,7 +33,7 @@
   border-radius: 4px;
   border: 1px solid #4e5766;
   box-shadow: 1px 0.5px #888888;
-}
+} */
 
 .title {
   color: black;
