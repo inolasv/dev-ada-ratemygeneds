@@ -31,14 +31,22 @@ const SingleGenEd = () => {
       const courseid = params.courseId
      //adn then look up and fetch data from there
         return (
-            <div>
-            <image src="https://i.pinimg.com/236x/b8/9e/28/b89e287af55113b8f25349a1c94815c1.jpg" alt="Click to return to home screen"/> 
-            <h1>{course['Course']} {course['Course Title']}</h1>
-            <h3> Course Description:</h3>
-            <h3> Average Rating</h3> 
-            <image src="https://icon2.cleanpng.com/20171220/ofw/star-png-image-5a3a7e9651e390.02167008151378293433541614.jpg" alt="display image"/> 
-            <h3> Number of Ratings: </h3>
-            <h3> Categories: {course['ACP']} {course['CS']} {course['HUM']} {course['NAT']} {course['QR']} {course['SBS']}</h3> 
+            <div className="course-id">
+              <image src="https://i.pinimg.com/236x/b8/9e/28/b89e287af55113b8f25349a1c94815c1.jpg" alt="Click to return to home screen"/> 
+              <div className="course-title">
+                <h1>{course['Course']} {course['Course Title']}</h1>
+              </div>
+              <div className="course-description">
+                <h3> Course Description:</h3>
+              </div>
+              <div className="ratings">
+                <h3> Average Rating</h3> 
+                <image src="https://icon2.cleanpng.com/20171220/ofw/star-png-image-5a3a7e9651e390.02167008151378293433541614.jpg" alt="display image"/> 
+                <h3> Number of Ratings: </h3>
+              </div>
+              <div className="categories">
+                <h3> Categories: {course['ACP']} {course['CS']} {course['HUM']} {course['NAT']} {course['QR']} {course['SBS']}</h3> 
+              </div>
             </div>
             );
 }
