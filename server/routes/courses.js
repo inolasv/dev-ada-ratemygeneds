@@ -37,8 +37,40 @@ courseRoutes.route('/courses/:name').get(function (req, res) {
       if (err) throw err;
       res.json(result);
       console.log(result);
-      console.log('Looking for courses with name ' + req.params.name);
+      console.log('Looking for courses with names ' + req.params.name);
     });
 });
+
+courseRoutes.route('/courses/id/:id').get(function (req, res) {
+  let db_connect = dbo.getDb('myFirstDatabase');
+  // console.
+  // let val = req.params.name;
+  db_connect
+    .collection('courses')
+    .find({_id: ObjectId(req.params.id)})
+    .toArray(function (err, result) {
+      if (err) throw err;
+      res.json(result);
+      console.log(result);
+      console.log('Looking for courses with id: ' + req.params.id);
+    });
+});
+
+//Search by ID:
+// courseRoutes.route('/courses/:id').get(function (req, res) {
+//   let db_connect = dbo.getDb('myFirstDatabase');
+//   // console.
+//   // let val = req.params.name;
+//   db_connect
+//     .collection('courses')
+//     .findById(req.params.id)
+//     .toArray(function (err, result) {
+//       if (err) throw err;
+//       res.json(result);
+//       console.log(result);
+//       console.log('Looking for course with id ' + req.params.id);
+//     });
+// });
+
 
 module.exports = courseRoutes;
