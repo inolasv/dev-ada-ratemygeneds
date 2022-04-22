@@ -1,7 +1,7 @@
 import '../stylesheets/Search.css';
 import React, { Component, useState } from 'react';
 import Course from './courseList';
-import star from '../star.png'
+import star from '../star.png';
 import { Link } from 'react-router-dom';
 
 export default function Search() {
