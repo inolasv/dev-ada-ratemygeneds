@@ -16,7 +16,8 @@ const SingleGenEd = () => {
                 <h3> Course Description: pulls from the data</h3> 
             </div>
             <div className="ratings">
-                <h3> Average Rating: *stars* # of ratings</h3>
+                <h3> Average Rating:</h3>
+                <h3> # of ratings:</h3>
                 <image src="https://icon2.cleanpng.com/20171220/ofw/star-png-image-5a3a7e9651e390.02167008151378293433541614.jpg" alt="display image"/> 
             </div>
             <div className="categories">
